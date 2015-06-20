@@ -2,7 +2,7 @@ request = require 'request'
 cheerio = require 'cheerio'
 cron = require('cron').CronJob
 module.exports = (robot) ->
-  new cron '47 2 * * *', () =>
+  new cron '52 2 * * *', () =>
     key = 'current_version'
 
     #currentVersion = robot.brain.get(key) ? '' 
