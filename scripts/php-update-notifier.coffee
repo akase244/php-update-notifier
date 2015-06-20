@@ -2,7 +2,7 @@ request = require 'request'
 cheerio = require 'cheerio'
 cron = require('cron').CronJob
 module.exports = (robot) ->
-  new cron '40 2 * * *', () =>
+  new cron '47 2 * * *', () =>
     key = 'current_version'
 
     #currentVersion = robot.brain.get(key) ? '' 
@@ -28,3 +28,4 @@ module.exports = (robot) ->
             robot.send room: '#general', '3'
             robot.send room: '#general', 'PHP ' + newVersion + ' Released.'
             robot.brain.set(key, newVersion)
+  , null, true, 'Asia/Tokyo'
