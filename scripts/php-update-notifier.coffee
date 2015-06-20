@@ -2,7 +2,7 @@ request = require 'request'
 cheerio = require 'cheerio'
 cron = require('cron').CronJob
 module.exports = (robot) ->
-  new cron '59 3 * * *', () =>
+  new cron '0 * * * *', () =>
     key = 'current_version'
     currentVersion = robot.brain.get(key) ? '4.4.9'
 
@@ -17,7 +17,6 @@ module.exports = (robot) ->
         releaseState = $ @
         if releaseState.text() is 'Current Stable'
           newVersion = releaseState.parent().attr('id').replace(/v/, '')
-          newVersion = '5.7.0'
 
           if currentVersion isnt newVersion
             robot.send room: '#general', 'PHP ' + newVersion + ' Released.'
