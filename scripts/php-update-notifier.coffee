@@ -2,15 +2,12 @@ request = require 'request'
 cheerio = require 'cheerio'
 cron = require('cron').CronJob
 module.exports = (robot) ->
-  new cron '12 3 * * *', () =>
+  new cron '26 3 * * *', () =>
     key = 'current_version'
-    robot.send room: "#general", "test" 
-    robot.send room: '#general', key 
 
-    ##currentVersion = robot.brain.get(key) ? '' 
-    #currentVersion = robot.brain.get(key) ? '4.4.9'
-    #robot.send room: '#general', '1'
-    #robot.send room: '#general', currentVersion
+    currentVersion = robot.brain.get(key) ? '4.4.9'
+    robot.send room: '#general', '1'
+    robot.send room: '#general', currentVersion
 
     #options =
     #  url: 'http://php.net/downloads.php'
