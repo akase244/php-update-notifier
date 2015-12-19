@@ -9,7 +9,7 @@ module.exports = (robot) ->
     options =
       url: 'http://php.net/downloads.php'
       timeout: 2000
-      headers: {'user-agent': 'php version fetcher'}
+      headers: {'user-agent': 'php version notifier'}
 
     request options, (error, response, body) ->
       $ = cheerio.load body
